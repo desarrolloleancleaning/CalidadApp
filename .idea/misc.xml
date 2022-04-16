@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/drawable/borde2.xml" value="0.22666666666666666" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/drawable/borde4.xml" value="0.22666666666666666" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/activity_main.xml" value="0.1641337386018237" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/activity_principal.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/cabecera.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/dashboard.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/estructura.xml" value="0.1641337386018237" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/procedimientos.xml" value="0.11151960784313726" />
+        <entry key="..\:/Users/TECNICO/AndroidStudioProjects/Calidad/app/src/main/res/layout/row_pregunta_sino.xml" value="0.12364130434782608" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

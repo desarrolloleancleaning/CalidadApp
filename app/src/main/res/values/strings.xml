@@ -1,0 +1,185 @@
+<resources>
+    <string name="app_name">LeanCleaning Calidad</string>
+    <string name="cat">Categoría</string>
+
+    <string name="usuario_cabecera">Usuario:</string>
+    <string name="sede_cabecera">Sede:</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="iniciarsesion">Iniciar sesión</string>
+    <string name="noespacios">Todavía no existen tareas definidas para este área</string>
+    <string name="finarea">FINALIZAR ÁREA</string>
+    <string name="terminar">Terminar</string>
+    <string name="siguientearea">SIGUIENTE ÁREA:</string>
+    <string name="nueva_area">NUEVA ÁREA</string>
+    <string name="nombre_area">NOMBRE ÁREA</string>
+    <string name="configurarareas">CONFIGURAR\nÁREAS</string>
+    <string name="configurarsedes">CONFIGURAR\nSEDES</string>
+    <string name="seleccioncliente">SELECCIONE CLIENTE</string>
+    <string name="seleccionsede">SELECCIONE SEDE</string>
+    <string name="gestionararea">GESTIONAR ÁREAS</string>
+    <string name="gestionarsede">GESTIONAR SEDE</string>
+    <string name="registrotrabajo">REGISTRO DE \nTRABAJO</string>
+    <string name="registropresencia">REGISTRO DE \nPRESENCIA</string>
+    <string name="configuracionareas">CONFIGURACIÓN</string>
+    <string name="comunicacion">COMUNICACIÓN</string>
+
+    <string name="anadirproducto">AÑADIR PRODUCTO</string>
+    <string name="anadirutil">AÑADIR ÚTIL</string>
+    <string name="anadiroperacion">AÑADIR OPERACIÓN</string>
+    <string name="seleccionetipo">Seleccione una categoria</string>
+    <string name="seleccionetareamaestra">Seleccione una tarea maestra</string>
+    <string name="vertical">VERTICAL</string>
+    <string name="horizontal">HORIZONTAL</string>
+    <string name="objeto">OBJETO</string>
+    <string name="sanitario">SANITARIO</string>
+    <string name="mobiliario">MOBILIARIO</string>
+    <string name="equipamiento">EQUIPAMIENTO</string>
+    <string name="preparacion">PREPARACIÓN</string>
+    <string name="descanso">DESCANSO</string>
+    <string name="objetos">OBJETOS</string>
+    <string name="tipo">TIPO</string>
+    <string name="cantidad">CANTIDAD</string>
+    <string name="comentarios">COMENTARIOS</string>
+
+    <string name="anadir">¿AÑADIR OPERACIÓN?</string>
+    <string name="nfcentrada">Acerque su movil a al etiqueta NFC de entrada</string>
+    <string name="nombreespacio">NOMBRE TAREA</string>
+    <string name="desmarcar">DESMARCAR TODO</string>
+    <string name="finalizarespacio">FINALIZAR TAREA</string>
+    <string name="nuevocomentario">Nuevo comentario</string>
+    <string name="finalizararea">FINALIZAR ÁREA</string>
+
+    <string name="nfcsalida">Acerque su dispositivo\na la etiqueta NFC de salida</string>
+    <string name="noincidencia">No tiene ninguna comunicación, pulse el botón añadir</string>
+    <string name="nuevacomunicacion">NUEVA\nCOMUNICACIÓN</string>
+    <string name="nuevaarea">INICIAR ÁREA</string>
+    <string name="etiquetanfc">Acerque su dispositivo\na la etiqueta NFC</string>
+    <string name="listaareas">LISTA ÁREAS</string>
+    <string name="noarea">No existen áreas configuradas para esta sede, pulse el botón de añadir</string>
+    <string name="añadirarea">AÑADIR ÁREA</string>
+    <string name="area">NUEVA ÁREA</string>
+    <string name="nombrearea">Nombre área</string>
+    <string name="nfce">NFC entrada</string>
+    <string name="nfcs">NFC salida</string>
+
+    <string name="espacios">TAREAS</string>
+    <string name="tareasenorden">TAREAS POR ORDEN DE EJECUCIÓN</string>
+    <string name="noespacio">Aún no tiene ninguna tarea, pulse el botón de añadir</string>
+
+    <string name="anadirespacio">AÑADIR\nTAREA</string>
+    <string name="guardararea">¿GUARDAR ÁREA?</string>
+    <string name="comunicacionnueva">Nueva Comunicación</string>
+    <string name="anadirimagen">AÑADIR IMAGEN</string>
+    <string name="seleccionemedio">Seleccione el medio de donde obtener la imagen.</string>
+    <string name="sacarfoto">Sacar una foto</string>
+    <string name="galeriaimagenes">"Galería de imágenes"</string>
+    <string name="guardarcomunicacion">GUARDAR \nCOMUNICACIÓN</string>
+    <string name="descripcion">Descripción</string>
+    <string name="titulo">Título</string>
+
+    <string name="tipo_comunicacion">Tipo de comunicación</string>
+    <string name="formacion">Formación</string>
+    <string name="calidad">Calidad</string>
+    <string name="medioambiente">Medio Ambiente</string>
+    <string name="seguridadysalud">Seguridad/Salud</string>
+
+
+    <string name="nuevoespacio">NUEVA TAREA</string>
+    <string name="editarespacio">EDITAR TAREA</string>
+    <string name="nombree">Nombre tarea</string>
+    <string name="operaciones">OPERACIONES</string>
+    <string name="nuevaoperacion">Aún no tiene ninguna operación, pulse el botón de añadir</string>
+    <string name="guardarespacio">¿GUARDAR TAREA?</string>
+
+    <string name="iniciopresencia">INICIAR</string>
+    <string name="finpresencia1">FINALIZAR</string>
+    <string name="iniciopresencia2">REGISTRO DE PRESENCIA</string>
+    <string name="finpresencia">Finalizar registro \nde presencia:</string>
+    <string name="nfcentradapresencia">Acerque el dispositivo a la etiqueta</string>
+    <string name="nfcsalidapresencia">Acerque su dispositivo a la\netiqueta NFC de fin de presencia</string>
+
+    <string name="editsede">EDITAR SEDE</string>
+    <string name="editarsedequestion">¿GUARDAR SEDE?</string>
+
+    <string name="nfcs_entrada">NFCs de entrada</string>
+    <string name="nfcs_salida">NFCs de salida</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="seleccion_jornada">SELECCIÓN DE JORNADA</string>
+    <string name="consultar_jornada">Consulta de jornada</string>
+    <string name="consultar_jornada1">CONSULTA DE JORNADA</string>
+    <string name="jornada_trabajo">JORNADA DE TRABAJO</string>
+    <string name="sede">SEDE:</string>
+    <string name="hora">HORA DE INICIO:</string>
+    <string name="nombre_tarea_jornada">NOMBRE DE TAREA:</string>
+    <string name="areas">ÁREAS</string>
+    <string name="tareas">TAREAS</string>
+    <string name="productos">PRODUCTOS</string>
+    <string name="resumenproductos">RESUMEN PRODUCTOS</string>
+    <string name="totalproductos">TOTAL PRODUCTOS</string>
+    <string name="utiles">ÚTILES</string>
+    <string name="resumenutiles">RESUMEN ÚTILES</string>
+    <string name="totalutiles">TOTAL ÚTILES</string>
+    <string name="no_reg_presencia">No existe un registro de presencia iniciado</string>
+
+    <string name="cargando">Cargando...</string>
+    <string name="nombre_hint">Buscar por nombre...</string>
+
+    <string name="seleccioneutil">Seleccione un útil</string>
+    <string name="seleccioneproducto">Seleccione un producto</string>
+
+    <string name="registrepaso"> Registre su paso por una de las áreas</string>
+    <string name="pulseparainiciar">Pulse para iniciar</string>
+    <string name="iniciar">INICIAR</string>
+    <string name="finalizar">FINALIZAR</string>
+    <string name="pulseparafinalizar">Pulse para finalizar</string>
+    <string name="pulseparamenu">Pulse para volver al menú</string>
+    <string name="registrandopresencia">FINALIZAR\nPRESENCIA</string>
+    <string name="buendia">Que tengas buen día</string>
+
+    <string name="consultadejornada">CONSULTA DE\nJORNADA</string>
+    <string name="jornada">JORNADA: </string>
+
+    <string name="iniciotrabajo">REGISTRO DE TRABAJO</string>
+    <string name="registrandotrabajo">REGISTRANDO TRABAJO</string>
+    <string name="volver">VOLVER</string>
+    <string name="continuar">CONTINUAR</string>
+    <string name="pulse">Pulse para seleccionar una imagen</string>
+    <string name="enviarcomunicacion">ENVIAR</string>
+    <string name="configure">Configure las sedes y las áreas</string>
+    <string name="guardarcambios">GUARDAR\nCAMBIOS</string>
+    <string name="guardarcambios2">GUARDAR CAMBIOS</string>
+    <string name="anadirnfc">AÑADIR</string>
+    <string name="anadirarea">AÑADIR ÁREA</string>
+    <string name="anadirtarea">AÑADIR TAREA</string>
+
+    <string name="volver_menu">VOLVER AL MENÚ</string>
+    <string name="datos_usuario">MIS DATOS</string>
+
+    <string name="datospendientes">Datos pendientes de envío</string>
+    <string name="noti_area">área</string>
+    <string name="noti_areas">áreas</string>
+    <string name="mensajeexito">Datos pendientes de envío actualizados correctamente</string>
+    <string name="atencion">Atención</string>
+    <string name="operaciones_tarea">Operaciones de la tarea</string>
+
+    <string name="borrar_nfc">¿Está seguro de que desea borrar el NFC?</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="texto_contenedor_operaciones">Todavía no existen operaciones definidas para esta tarea</string>
+
+    <string name="estructura">Estructura</string>
+    <string name="procedimientos">Procedimientos</string>
+    <string name="configuracion">Configuración</string>
+    <string name="datos_generales">Datos generales</string>
+
+    <string name="error_sedes_usuario">Este usuario no tiene sedes configuradas para realizar la inspección</string>
+
+    <string name="seleccion_sede">Selección de sede</string>
+    <string name="seleccion_sede_text">Pulse sobre la sede que en la que va a realizar la inspección</string>
+
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cuestionario">Cuestionario</string>
+    <string name="error_cuestionario">No ha contestado todas las preguntas del cuestionario. Debe rellenar todo el cuestionario para continuar.</string>
+</resources>

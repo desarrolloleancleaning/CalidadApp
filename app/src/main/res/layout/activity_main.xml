@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="470dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logoapp"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorspinner"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_gravity="right|bottom"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/fondo"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+            <EditText
+                android:id="@+id/dni"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="@string/usuario"
+                android:textColorHint="#9a9a9a"
+                android:textAlignment="center"
+                android:background="@drawable/borde"
+                android:padding="10dp"
+                android:textColor="#9a9a9a"
+                android:layout_weight="1"
+                android:textCursorDrawable="@null"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:text="sandu"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/contrasena"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="@string/contrasena"
+                android:textColorHint="#9a9a9a"
+                android:textAlignment="center"
+                android:background="@drawable/borde"
+                android:padding="10dp"
+                android:textColor="#9a9a9a"
+                android:layout_weight="1"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textCursorDrawable="@null"
+                android:imeOptions="actionDone"
+                android:text="123123"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+            <Button
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="@string/iniciarsesion"
+                android:textAllCaps="false"
+                android:background="@drawable/borde2"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:typeface="sans">
+            </Button>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Color de fondo de la vista -->
+    <solid
+        android:color="#ffffff">
+    </solid>
+
+
+
+    <!-- Color y ancho del borde del elemento -->
+    <stroke
+        android:width="0dp"
+        >
+    </stroke>
+
+    <gradient
+        android:startColor="#77c0d4"
+        android:endColor="#088db1"
+        android:angle="180"
+        />
+
+</shape>

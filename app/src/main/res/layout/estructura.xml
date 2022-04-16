@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="9">
+
+        <TextView
+            android:id="@+id/text_usuario"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/usuario_cabecera"/>
+
+        <TextView
+            android:id="@+id/text_sede"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/sede_cabecera"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/registropresencia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="5"
+            android:background="@drawable/borde4"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_weight="1.2"
+                android:src="@drawable/jornadatrabajo" />
+
+            <TextView
+                android:id="@+id/registropresenciatext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="5"
+                android:gravity="left|center"
+                android:text="@string/estructura"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize=
+                    "42sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/boton_guardar"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_weight="1.2"
+                android:src="@drawable/guardar"
+                android:clickable="true"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/borde15"
+            android:layout_margin="1dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textCursorDrawable="@null"
+                android:textSize="25dp"
+                android:text="@string/cuestionario"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:text="@string/si"/>
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:text="@string/no"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/consultadejornada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/borde15"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listaPreguntas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#FFFFFF"
+                android:dividerHeight="1dp">
+            </ListView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+
