@@ -182,4 +182,17 @@
     <string name="cancelar">Cancelar</string>
     <string name="cuestionario">Cuestionario</string>
     <string name="error_cuestionario">No ha contestado todas las preguntas del cuestionario. Debe rellenar todo el cuestionario para continuar.</string>
+    <string name="error_datos_generales">Por favor rellene los campos obligatorios (*) para continuar.</string>
+
+    <string name="centro">Centro:</string>
+    <string name="departamento">Departamento * :</string>
+    <string name="fecha">Fecha:</string>
+    <string name="responsable">Responsable * :</string>
+    <string name="objetivo">Objetivo * :</string>
+    <string name="supervisor">Supervisor:</string>
+    <string name="evaluador">Evaluador:</string>
+    <string name="observaciones">Observaciones:</string>
+    <string name="firma_evaluador">Firma evaluador</string>
+    <string name="firma_responsable">Firma responsable</string>
+
 </resources>

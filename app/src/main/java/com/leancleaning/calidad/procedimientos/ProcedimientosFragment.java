@@ -168,6 +168,14 @@ public class ProcedimientosFragment extends Fragment {
                                 CustomAdapter adapter = new CustomAdapter(getActivity(), R.layout.row_pregunta_sino, preguntas);
                                 lista_preguntas.setAdapter(adapter);
                                 adapter.notifyDataSetChanged();
+
+                                /* Miramos si ya tenemos respuestas para actualizar en lugar de crear */
+                                if (application.getRespuestas_procedimientos() != null && application.getRespuestas_procedimientos().size() >0){
+                                    respuestas.clear();
+
+                                    respuestas = new ArrayList<>(application.getRespuestas_procedimientos());
+                                }
+
                             }
 
 

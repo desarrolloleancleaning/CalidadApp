@@ -53,6 +53,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/image_datos_generales"
                 android:layout_width="195dp"
                 android:layout_height="195dp"
                 android:layout_gravity="center"

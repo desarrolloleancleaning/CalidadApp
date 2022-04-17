@@ -1,5 +1,6 @@
 package com.leancleaning.calidad;
 
+import com.leancleaning.calidad.Clases.Cuestionario;
 import com.leancleaning.calidad.Clases.Respuesta;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ public class Application extends android.app.Application{
 
     private ArrayList<Respuesta> respuestas_estructura;
     private ArrayList<Respuesta> respuestas_procedimientos;
+    private Cuestionario cuestionario;
 
     @Override
     public void onCreate() {
@@ -32,5 +34,13 @@ public class Application extends android.app.Application{
 
     public void setRespuestas_procedimientos(ArrayList<Respuesta> respuestas_procedimientos) {
         this.respuestas_procedimientos = respuestas_procedimientos;
+    }
+
+    public Cuestionario getCuestionario() {
+        return cuestionario;
+    }
+
+    public void setCuestionario(Cuestionario cuestionario) {
+        this.cuestionario = cuestionario;
     }
 }

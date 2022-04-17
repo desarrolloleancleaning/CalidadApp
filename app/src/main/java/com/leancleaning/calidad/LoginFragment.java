@@ -85,6 +85,8 @@ public class LoginFragment extends Fragment {
                                             LeancleaningUtils.setPreferencias("rol",result.getString("rol"),getContext());
                                             LeancleaningUtils.setPreferencias("id_empresa",result.getString("id_empresa"),getContext());
                                             LeancleaningUtils.setPreferencias("id_usuario_logueado",result.getString("id_usuario"),getContext());
+                                            LeancleaningUtils.setPreferencias("nombre_evaluador",result.getString("nombre")+ " "+result.getString("apellidos") ,getContext());
+
 
                                             View view = getActivity().getCurrentFocus();
                                             if (view != null) {
@@ -96,33 +98,8 @@ public class LoginFragment extends Fragment {
                                             principal.transitionToFragment(MainActivityFragment.class.getName(), MainActivityFragment.TAG, false, "");
 
                                         } else {
-                                            String micliente = result.getString("inactivo");
+                                            principal.alert("Error","Error al realizar el login",getContext());
 
-                                            if (micliente.matches("usuario")) {
-                                                llamadaGet2 = new LlamadaGet("vaciartoken"+"&usuario="+user, 10000, true, " ", getContext());
-                                                llamadaGet2.execute("");
-                                                llamadaGet2.completionCode = new AsyncListener() {
-                                                    @Override
-                                                    public void onComplete() {
-                                                        if (llamadaGet2.isLoading())
-                                                            llamadaGet2.quitarProgressDialog();
-                                                    }
-                                                };
-                                                principal.alert("Error","Usuario no activo, consulte con el responsable",getContext());
-
-                                            } else {
-                                                llamadaGet2 = new LlamadaGet("vaciartoken"+"&usuario="+user, 10000, true, " ", getContext());
-                                                llamadaGet2.execute("");
-                                                llamadaGet2.completionCode = new AsyncListener() {
-                                                    @Override
-                                                    public void onComplete() {
-                                                        if (llamadaGet2.isLoading())
-                                                            llamadaGet2.quitarProgressDialog();
-                                                    }
-                                                };
-                                                principal.alert("Error","Empresa no activa, consulte con el responsable",getContext());
-
-                                            }
                                         }
                                     } catch (Exception e) {
                                         e.printStackTrace();

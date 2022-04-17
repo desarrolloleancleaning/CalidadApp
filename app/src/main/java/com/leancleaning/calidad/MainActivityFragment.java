@@ -26,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import com.leancleaning.calidad.WS.LlamadaGet;
 import com.leancleaning.calidad.WS.LlamadaGetCalidad;
 import com.leancleaning.calidad.WS.LlamadaPost;
+import com.leancleaning.calidad.datosgenerales.DatosGeneralesFragment;
 import com.leancleaning.calidad.estructura.EstructuraFragment;
 import com.leancleaning.calidad.procedimientos.ProcedimientosFragment;
 import com.leancleaning.calidad.utils.AsyncListener;
@@ -52,7 +53,7 @@ public class MainActivityFragment extends Fragment {
     private LlamadaPost llamadapost, llamadapost2, llamadapost3, llamadapost4;
     private TextView text_usuario,text_sede;
 
-    ImageView image_estructura, image_procedimiento;
+    ImageView image_estructura, image_procedimiento, image_datos_generales;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -81,9 +82,21 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
+        LinearLayout datos_generales = fragmentView.findViewById(R.id.datos_generales);
+        datos_generales.setClickable(true);
+        datos_generales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                principal.transitionToFragment(DatosGeneralesFragment.class.getName(), DatosGeneralesFragment.TAG, true, null);
+            }
+        });
+
+
+
 
         image_estructura = fragmentView.findViewById(R.id.image_estructura);
         image_procedimiento = fragmentView.findViewById(R.id.image_procedimiento);
+        image_datos_generales  = fragmentView.findViewById(R.id.image_datos_generales);
 
         text_usuario = fragmentView.findViewById(R.id.text_usuario);
         text_usuario.setText(Html.fromHtml("<b>"+getString(R.string.usuario_cabecera)+"</b>" + " " + LeancleaningUtils.getPreferencias("usuario_logueado", "", requireContext())));
@@ -109,6 +122,11 @@ public class MainActivityFragment extends Fragment {
             image_procedimiento.setImageResource(R.drawable.comunicacion);
         }
 
+        if (application.getCuestionario() != null && !application.getCuestionario().getCentro().equals("") ){
+            image_datos_generales.setImageResource(R.drawable.registrotrabajo_ok);
+        }else{
+            image_datos_generales.setImageResource(R.drawable.registrotrabajo);
+        }
 
 
         return fragmentView;
