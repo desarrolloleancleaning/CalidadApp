@@ -195,4 +195,8 @@
     <string name="firma_evaluador">Firma evaluador</string>
     <string name="firma_responsable">Firma responsable</string>
 
+    <string name="seleccion_area">Selección de area</string>
+    <string name="seleccion_area_text">Pulse sobre el area que en la que va a realizar la inspección</string>
+
+
 </resources>

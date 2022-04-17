@@ -26,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import com.leancleaning.calidad.WS.LlamadaGet;
 import com.leancleaning.calidad.WS.LlamadaGetCalidad;
 import com.leancleaning.calidad.WS.LlamadaPost;
+import com.leancleaning.calidad.calidad.CalidadFragment;
 import com.leancleaning.calidad.datosgenerales.DatosGeneralesFragment;
 import com.leancleaning.calidad.estructura.EstructuraFragment;
 import com.leancleaning.calidad.procedimientos.ProcedimientosFragment;
@@ -88,6 +89,15 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 principal.transitionToFragment(DatosGeneralesFragment.class.getName(), DatosGeneralesFragment.TAG, true, null);
+            }
+        });
+
+        LinearLayout calidad = fragmentView.findViewById(R.id.calidad);
+        calidad.setClickable(true);
+        calidad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                principal.transitionToFragment(CalidadFragment.class.getName(), CalidadFragment.TAG, true, null);
             }
         });
 
