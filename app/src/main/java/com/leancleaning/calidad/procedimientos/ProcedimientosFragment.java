@@ -165,16 +165,20 @@ public class ProcedimientosFragment extends Fragment {
 
 
                             if ( preguntas != null && preguntas.size()>0){
+
+                                /* Miramos si ya tenemos respuestas para actualizar en lugar de crear */
+                                if (application.respuestas_procedimientos != null && application.respuestas_procedimientos.size() >0){
+                                    respuestas.clear();
+                                    respuestas = new ArrayList<>();
+                                    for(Respuesta obj : application.respuestas_procedimientos) {
+                                        respuestas.add((Respuesta) obj.clone());
+                                    }
+
+                                }
+
                                 CustomAdapter adapter = new CustomAdapter(getActivity(), R.layout.row_pregunta_sino, preguntas);
                                 lista_preguntas.setAdapter(adapter);
                                 adapter.notifyDataSetChanged();
-
-                                /* Miramos si ya tenemos respuestas para actualizar en lugar de crear */
-                                if (application.getRespuestas_procedimientos() != null && application.getRespuestas_procedimientos().size() >0){
-                                    respuestas.clear();
-
-                                    respuestas = new ArrayList<>(application.getRespuestas_procedimientos());
-                                }
 
                             }
 
@@ -311,8 +315,6 @@ public class ProcedimientosFragment extends Fragment {
 
     public void guardar_datos(){
 
-        application.setRespuestas_procedimientos(new ArrayList<>());
-
         boolean contestado_todo_cuestionario = true;
 
         for (Respuesta res: respuestas) {
@@ -345,12 +347,21 @@ public class ProcedimientosFragment extends Fragment {
             dialog.show();
 
         }else{
-            Log.d("GUARDAR","GUARDAR");
 
-            application.setRespuestas_procedimientos(respuestas);
+            application.respuestas_procedimientos.clear();
+            application.respuestas_procedimientos = new ArrayList<Respuesta>();
+            for(Respuesta obj : respuestas ) {
+                application.respuestas_procedimientos.add((Respuesta) obj.clone());
+            }
+
+
+            respuestas.clear();
 
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.popBackStack();
+
+
+
         }
 
     }

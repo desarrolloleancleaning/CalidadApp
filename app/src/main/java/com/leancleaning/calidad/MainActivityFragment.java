@@ -120,13 +120,13 @@ public class MainActivityFragment extends Fragment {
             text_sede.setText(Html.fromHtml("<b>"+getString(R.string.sede_cabecera)+"</b>" + " " + LeancleaningUtils.getPreferencias("nombre_sede_seleccionada", "", requireContext())));
 
 
-        if (application.getRespuestas_estructura() != null && application.getRespuestas_estructura().size() > 0){
+        if (application.respuestas_estructura != null && application.respuestas_estructura.size() > 0){
             image_estructura.setImageResource(R.drawable.jornadatrabajo_ok);
         }else{
             image_estructura.setImageResource(R.drawable.jornadatrabajo);
         }
 
-        if (application.getRespuestas_procedimientos() != null && application.getRespuestas_procedimientos().size() > 0){
+        if (application.respuestas_procedimientos != null && application.respuestas_procedimientos.size() > 0){
             image_procedimiento.setImageResource(R.drawable.comunicacion_ok);
         }else{
             image_procedimiento.setImageResource(R.drawable.comunicacion);

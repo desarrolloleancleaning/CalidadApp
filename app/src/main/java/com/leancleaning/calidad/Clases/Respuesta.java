@@ -1,6 +1,8 @@
 package com.leancleaning.calidad.Clases;
 
-public class Respuesta {
+import java.io.Serializable;
+
+public class Respuesta implements Cloneable {
 
     private int idCuestionarioDetalle;
     private int idCuestionario;
@@ -128,4 +130,18 @@ public class Respuesta {
     public void setContestado(boolean contestado) {
         this.contestado = contestado;
     }
+
+    public Object clone()
+    {
+        try
+        {
+            return super.clone();
+        }
+        catch( CloneNotSupportedException e )
+        {
+            return null;
+        }
+    }
+
+
 }

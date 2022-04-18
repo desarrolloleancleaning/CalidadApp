@@ -24,10 +24,11 @@
         android:id="@+id/prioridad"
         android:layout_width="50dp"
         android:layout_height="135dp"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:gravity="center"
         android:textSize="18dp"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:layout_marginRight="7dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_1"
