@@ -3,6 +3,7 @@ package com.leancleaning.calidad.calidad;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -21,12 +22,14 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.leancleaning.calidad.Application;
 import com.leancleaning.calidad.Clases.Area;
 import com.leancleaning.calidad.Clases.Pregunta;
 import com.leancleaning.calidad.Clases.Respuesta;
 import com.leancleaning.calidad.Clases.RespuestasCalidad;
+import com.leancleaning.calidad.LoginActivity;
 import com.leancleaning.calidad.R;
 import com.leancleaning.calidad.WS.LlamadaGetCalidad;
 import com.leancleaning.calidad.procedimientos.ProcedimientosFragment;
@@ -63,6 +66,8 @@ public class CalidadFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
+        Log.d("onCreateView","onCreateView");
         // Inflate the layout for this fragment
         fragmentView = inflater.inflate(R.layout.calidad, container, false);
 
@@ -307,7 +312,10 @@ public class CalidadFragment extends Fragment {
                                     for (RespuestasCalidad res_calidad: application.respuestas_calidad) {
                                         if (res_calidad.getArea().getId_area() == area_seleccionada.getId_area()){
                                             respuestas.clear();
-                                            respuestas = new ArrayList<>(res_calidad.getRespuestas());
+                                            respuestas = new ArrayList<>();
+                                            for(Respuesta obj : res_calidad.getRespuestas()) {
+                                                respuestas.add((Respuesta) obj.clone());
+                                            }
                                             break;
                                         }
                                     }
@@ -622,10 +630,82 @@ public class CalidadFragment extends Fragment {
             dialog.show();
 
         }else{
-            Log.d("GUARDAR","GUARDAR");
 
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.popBackStack();
+
+            boolean area_encontrada = false;
+            RespuestasCalidad respuestasCalidad_seleccionada = null;
+
+            for (RespuestasCalidad res_calidad: application.respuestas_calidad) {
+                if (res_calidad.getArea().getId_area() == area_seleccionada.getId_area()){
+                    area_encontrada = true;
+                    respuestasCalidad_seleccionada = res_calidad;
+                    break;
+                }
+            }
+            
+            if (area_encontrada){
+                //Editar
+                ArrayList<Respuesta> res = new ArrayList<Respuesta>();
+                for(Respuesta obj : respuestas ) {
+                    res.add((Respuesta) obj.clone());
+                }
+                respuestasCalidad_seleccionada.getRespuestas().clear();
+                respuestasCalidad_seleccionada.setRespuestas(res);
+            }else{
+                //Crear
+                RespuestasCalidad  aux = new RespuestasCalidad();
+                aux.setArea(area_seleccionada);
+                aux.setRespuestas(new ArrayList<Respuesta>());
+
+                ArrayList<Respuesta> res = new ArrayList<Respuesta>();
+                for(Respuesta obj : respuestas ) {
+                    res.add((Respuesta) obj.clone());
+                }
+
+                aux.setRespuestas(res);
+
+                application.respuestas_calidad.add(aux);
+                
+            }
+
+            respuestas.clear();
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            builder.setTitle(getString(R.string.area_registrada));
+            builder.setMessage(getString(R.string.area_registrada_detalle));
+
+            builder.setPositiveButton(R.string.registro_nuevo_area, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    dialog.dismiss();
+
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.popBackStack();
+
+                    ((LoginActivity)getActivity()).transitionToFragment(CalidadFragment.class.getName(), CalidadFragment.TAG, true, null);
+
+                }
+            });
+
+            builder.setNegativeButton(R.string.finalizar_calidad, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    dialog.dismiss();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.popBackStack();
+                }
+            });
+
+            builder.setNeutralButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
         }
 
 

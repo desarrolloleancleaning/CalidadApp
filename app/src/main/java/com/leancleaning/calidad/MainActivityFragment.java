@@ -54,7 +54,7 @@ public class MainActivityFragment extends Fragment {
     private LlamadaPost llamadapost, llamadapost2, llamadapost3, llamadapost4;
     private TextView text_usuario,text_sede;
 
-    ImageView image_estructura, image_procedimiento, image_datos_generales;
+    ImageView image_estructura, image_procedimiento, image_datos_generales, image_calidad;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -107,6 +107,7 @@ public class MainActivityFragment extends Fragment {
         image_estructura = fragmentView.findViewById(R.id.image_estructura);
         image_procedimiento = fragmentView.findViewById(R.id.image_procedimiento);
         image_datos_generales  = fragmentView.findViewById(R.id.image_datos_generales);
+        image_calidad  = fragmentView.findViewById(R.id.image_calidad);
 
         text_usuario = fragmentView.findViewById(R.id.text_usuario);
         text_usuario.setText(Html.fromHtml("<b>"+getString(R.string.usuario_cabecera)+"</b>" + " " + LeancleaningUtils.getPreferencias("usuario_logueado", "", requireContext())));
@@ -136,6 +137,12 @@ public class MainActivityFragment extends Fragment {
             image_datos_generales.setImageResource(R.drawable.registrotrabajo_ok);
         }else{
             image_datos_generales.setImageResource(R.drawable.registrotrabajo);
+        }
+
+        if (application.respuestas_calidad != null && application.respuestas_calidad.size() >0 ){
+            image_calidad.setImageResource(R.drawable.iconopresencia_ok);
+        }else{
+            image_calidad.setImageResource(R.drawable.iconopresencia);
         }
 
 

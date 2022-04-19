@@ -19,6 +19,7 @@ public class Application extends android.app.Application{
 
         respuestas_estructura = new ArrayList<>();
         respuestas_procedimientos = new ArrayList<>();
+        respuestas_calidad = new ArrayList<>();
 
         super.onCreate();
 

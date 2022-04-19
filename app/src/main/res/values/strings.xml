@@ -199,5 +199,10 @@
     <string name="seleccion_area">Selección de área</string>
     <string name="seleccion_area_text">Pulse sobre el área que en la que va a realizar la inspección</string>
 
+    <string name="area_registrada">Área registrada correctamente</string>
+    <string name="area_registrada_detalle">¿Qué desea hacer a continuación?</string>
+
+    <string name="registro_nuevo_area">Calificar nuevo área</string>
+    <string name="finalizar_calidad">Finalizar cuestionario</string>
 
 </resources>
