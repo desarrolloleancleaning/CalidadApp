@@ -65,7 +65,7 @@ public class LlamadaPost extends AsyncTask<String, String, String> {
 
             HttpClient client = new DefaultHttpClient(my_httpParams);
 
-            String url = LlamadaGet.URLBASE;
+            String url = LlamadaGetCalidad.URLBASE;
 
             if (metodo.contains("gtodoareas") || metodo.contains("multirdt")) {
                 url = url.replace("r=api", "r=api_offline");

@@ -232,7 +232,8 @@
                         android:gravity="start|center_vertical"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="Perico Diaz"/>
 
                 </LinearLayout>
 
@@ -264,7 +265,8 @@
                         android:gravity="start|center_vertical"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="Gerencia"/>
 
                 </LinearLayout>
 
@@ -298,7 +300,8 @@
                         android:gravity="start|center_vertical"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="Ander Diaz"/>
 
                 </LinearLayout>
 
@@ -330,7 +333,8 @@
                         android:gravity="start|center_vertical"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="Medir calidad de limpieza del recinto"/>
 
                 </LinearLayout>
 
@@ -362,7 +366,8 @@
                         android:gravity="start|center_vertical"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="Primer formulario enviado"/>
 
                 </LinearLayout>
 

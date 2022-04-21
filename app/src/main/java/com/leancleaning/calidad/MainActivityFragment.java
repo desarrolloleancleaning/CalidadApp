@@ -23,6 +23,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
+import com.leancleaning.calidad.Clases.Respuesta;
+import com.leancleaning.calidad.Clases.RespuestasCalidad;
 import com.leancleaning.calidad.WS.LlamadaGet;
 import com.leancleaning.calidad.WS.LlamadaGetCalidad;
 import com.leancleaning.calidad.WS.LlamadaPost;
@@ -40,6 +42,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.concurrent.Executors;
 
 public class MainActivityFragment extends Fragment {
@@ -49,9 +52,8 @@ public class MainActivityFragment extends Fragment {
     public static String TAG = "MainActivity_fragment";
     private View fragmentView;
     private LoginActivity principal;
-    private LlamadaGetCalidad llamadaGet, llamadaGet2;
-    private String usuario_aux;
-    private LlamadaPost llamadapost, llamadapost2, llamadapost3, llamadapost4;
+    private LlamadaGetCalidad llamadaGet;
+    private LlamadaPost llamadaPost;
     private TextView text_usuario,text_sede;
 
     ImageView image_estructura, image_procedimiento, image_datos_generales, image_calidad;
@@ -102,6 +104,16 @@ public class MainActivityFragment extends Fragment {
         });
 
 
+        LinearLayout linear_img_envio = fragmentView.findViewById(R.id.linear_img_envio);
+        linear_img_envio.setVisibility(View.GONE);
+        linear_img_envio.setClickable(true);
+        linear_img_envio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enviar_cuestionario();
+            }
+        });
+
 
 
         image_estructura = fragmentView.findViewById(R.id.image_estructura);
@@ -143,6 +155,13 @@ public class MainActivityFragment extends Fragment {
             image_calidad.setImageResource(R.drawable.iconopresencia_ok);
         }else{
             image_calidad.setImageResource(R.drawable.iconopresencia);
+        }
+
+        if (application.getCuestionario() != null && !application.getCuestionario().getCentro().equals("")
+        && application.respuestas_calidad != null && application.respuestas_calidad.size() >0){
+            linear_img_envio.setVisibility(View.VISIBLE);
+        }else{
+            linear_img_envio.setVisibility(View.GONE);
         }
 
 
@@ -278,10 +297,179 @@ public class MainActivityFragment extends Fragment {
 
         }
 
-
-
     }
 
 
+
+    private void enviar_cuestionario(){
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle(getString(R.string.atencion));
+        builder.setMessage(getString(R.string.seguro_enviar));
+
+        builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                envio_datos();
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    private void envio_datos(){
+        Log.d("ENVIO","ENVIO");
+
+        JSONObject json_cuestionario = new JSONObject();
+
+        try {
+            json_cuestionario = new JSONObject();
+            json_cuestionario.put("centro", application.getCuestionario().getCentro());
+            json_cuestionario.put("idSede", application.getCuestionario().getIdSede());
+            json_cuestionario.put("departamento", application.getCuestionario().getDepartamento());
+            json_cuestionario.put("responsable", application.getCuestionario().getResponsable());
+            json_cuestionario.put("fecha", application.getCuestionario().getFecha());
+            json_cuestionario.put("objetivo", application.getCuestionario().getObjetivo());
+            json_cuestionario.put("supervisor", application.getCuestionario().getSupervisor());
+            json_cuestionario.put("valoracion", application.getCuestionario().getValoracion());
+            json_cuestionario.put("desviacion", application.getCuestionario().getDesviacion());
+            json_cuestionario.put("evaluador", application.getCuestionario().getEvaluador());
+            json_cuestionario.put("observaciones", application.getCuestionario().getObservaciones());
+            json_cuestionario.put("idFirmaEvaluador", "");
+            json_cuestionario.put("idFirmaResponsable", "");
+
+            JSONArray array_res = new JSONArray();
+            for (int t = 0; t < application.respuestas_calidad.size(); t++) {
+                RespuestasCalidad respuestasCalidad = application.respuestas_calidad.get(t);
+
+                for (Respuesta res_cues:respuestasCalidad.getRespuestas()){
+                    JSONObject respuesas = new JSONObject();
+                    respuesas.put("idPregunta", res_cues.getIdPregunta());
+                    respuesas.put("idArea",res_cues.getIdArea() );
+                    respuesas.put("nivel1",res_cues.getNivel1());
+                    respuesas.put("nivel2", res_cues.getNivel2());
+                    respuesas.put("nivel3", res_cues.getNivel3());
+                    respuesas.put("nivel4", res_cues.getNivel4());
+                    respuesas.put("nivel5", res_cues.getNivel5());
+                    respuesas.put("nivelSi", res_cues.getNivelSi());
+                    respuesas.put("nivelNo", res_cues.getNivelNo());
+
+                    array_res.put(respuesas);
+                }
+
+            }
+
+            if (application.respuestas_estructura != null && application.respuestas_estructura.size() > 0){
+                for (Respuesta res_cues:application.respuestas_estructura){
+                    JSONObject respuesas = new JSONObject();
+                    respuesas.put("idPregunta", res_cues.getIdPregunta());
+                    respuesas.put("idArea",res_cues.getIdArea() );
+                    respuesas.put("nivel1",res_cues.getNivel1());
+                    respuesas.put("nivel2", res_cues.getNivel2());
+                    respuesas.put("nivel3", res_cues.getNivel3());
+                    respuesas.put("nivel4", res_cues.getNivel4());
+                    respuesas.put("nivel5", res_cues.getNivel5());
+                    respuesas.put("nivelSi", res_cues.getNivelSi());
+                    respuesas.put("nivelNo", res_cues.getNivelNo());
+
+                    array_res.put(respuesas);
+                }
+            }
+
+            if (application.respuestas_procedimientos != null && application.respuestas_procedimientos.size() > 0){
+                for (Respuesta res_cues:application.respuestas_procedimientos){
+                    JSONObject respuesas = new JSONObject();
+                    respuesas.put("idPregunta", res_cues.getIdPregunta());
+                    respuesas.put("idArea",res_cues.getIdArea() );
+                    respuesas.put("nivel1",res_cues.getNivel1());
+                    respuesas.put("nivel2", res_cues.getNivel2());
+                    respuesas.put("nivel3", res_cues.getNivel3());
+                    respuesas.put("nivel4", res_cues.getNivel4());
+                    respuesas.put("nivel5", res_cues.getNivel5());
+                    respuesas.put("nivelSi", res_cues.getNivelSi());
+                    respuesas.put("nivelNo", res_cues.getNivelNo());
+
+                    array_res.put(respuesas);
+                }
+            }
+
+            json_cuestionario.put("detalles", array_res);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Log.d("Datos envio", "Datos envio: "+ json_cuestionario.toString());
+
+        llamadaPost = new LlamadaPost("registrarcuestionario", json_cuestionario.toString(), 10000, true, "Cargando...", null, null, requireContext());
+        llamadaPost.execute("");
+        llamadaPost.completionCode = new AsyncListener() {
+            @Override
+            public void onComplete() {
+                String resultado = llamadaPost.getResultado();
+
+                if (llamadaPost.isLoading())
+                    llamadaPost.quitarProgressDialog();
+
+                Log.d("RES","RES: "+ resultado);
+
+                if (resultado == null) {
+                    Toast.makeText(getActivity(), "Error al enviar el cuestionario, inténtalo de nuevo", Toast.LENGTH_SHORT).show();
+                } else if (resultado.equals("")) {
+                    Toast.makeText(getActivity(), "Error al enviar el cuestionario, inténtalo de nuevo", Toast.LENGTH_SHORT).show();
+                }  else {
+
+                    try {
+                        JSONObject result = new JSONObject(llamadaPost.getResultado());
+                        if (result.getBoolean("success")) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                            builder.setTitle(getString(R.string.atencion));
+                            builder.setCancelable(false);
+                            builder.setMessage(getString(R.string.formulario_ok_enviado));
+
+                            builder.setNegativeButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+
+                                    LeancleaningUtils.setPreferencias("usuario_logueado","",getContext());
+                                    LeancleaningUtils.setPreferencias("pass","",getContext());
+                                    LeancleaningUtils.setPreferencias("rol","",getContext());
+                                    LeancleaningUtils.setPreferencias("id_empresa","",getContext());
+                                    LeancleaningUtils.setPreferencias("id_usuario_logueado","",getContext());
+                                    LeancleaningUtils.setPreferencias("nombre_evaluador","" ,getContext());
+
+                                    principal.finishAffinity();
+                                    System.exit(0);
+
+                                    dialog.dismiss();
+                                }
+                            });
+
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }else{
+                            Toast.makeText(getActivity(), "Error al enviar el cuestionario, inténtalo de nuevo", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }catch (Exception e){
+                        Toast.makeText(getActivity(), "Error al enviar el cuestionario, inténtalo de nuevo", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        };
+
+    }
 
 }
