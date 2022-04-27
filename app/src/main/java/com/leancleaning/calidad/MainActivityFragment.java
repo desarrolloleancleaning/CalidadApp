@@ -157,12 +157,25 @@ public class MainActivityFragment extends Fragment {
             image_calidad.setImageResource(R.drawable.iconopresencia);
         }
 
-        if (application.getCuestionario() != null && !application.getCuestionario().getCentro().equals("")
-        && application.respuestas_calidad != null && application.respuestas_calidad.size() >0){
+        /*if (application.getCuestionario() != null && !application.getCuestionario().getCentro().equals("")
+        && (application.respuestas_calidad != null && application.respuestas_calidad.size() >0 )){
             linear_img_envio.setVisibility(View.VISIBLE);
         }else{
             linear_img_envio.setVisibility(View.GONE);
+        }*/
+
+        if (application.getCuestionario() != null && !application.getCuestionario().getCentro().equals("")){
+            if ((application.respuestas_calidad != null && application.respuestas_calidad.size() >0)
+                || (application.respuestas_procedimientos != null && application.respuestas_procedimientos.size() >0)
+                    || (application.respuestas_estructura != null && application.respuestas_estructura.size() >0))  {
+                linear_img_envio.setVisibility(View.VISIBLE);
+            }else{
+                linear_img_envio.setVisibility(View.GONE);
+            }
+        }else{
+            linear_img_envio.setVisibility(View.GONE);
         }
+
 
 
         return fragmentView;
@@ -327,8 +340,95 @@ public class MainActivityFragment extends Fragment {
     }
 
 
+    private double calcular_nota_cuestionario(){
+        boolean calidad = false;
+        double nota_calidad = 0;
+
+        boolean procedimientos = false;
+        double nota_procedimientos = 0;
+
+        boolean estructura = false;
+        double nota_estructura = 0;
+
+        if (application.respuestas_calidad != null && application.respuestas_calidad.size() >0 ){
+            calidad = true;
+
+            int cont_parcial = 0;
+            int cont_total = 0;
+            for (RespuestasCalidad resp:application.respuestas_calidad) {
+
+                for (Respuesta res: resp.getRespuestas()){
+                    int puntuacion_respuesta = 0;
+                    if (res.getNivel1() == 1){
+                        puntuacion_respuesta = 1;
+                    }else if (res.getNivel2() == 1){
+                        puntuacion_respuesta = 2;
+                    }else if (res.getNivel3() == 1){
+                        puntuacion_respuesta = 3;
+                    }else if (res.getNivel4() == 1){
+                        puntuacion_respuesta = 4;
+                    }else if (res.getNivel5() == 1){
+                        puntuacion_respuesta = 5;
+                    }
+                    puntuacion_respuesta = puntuacion_respuesta * res.getNivelK();
+                    cont_parcial += puntuacion_respuesta;
+                    cont_total += 5 * res.getNivelK();
+                }
+            }
+
+            nota_calidad = ((double)cont_parcial/(double)cont_total)*100;
+
+        }
+
+        if (application.respuestas_estructura != null && application.respuestas_estructura.size() > 0){
+            estructura = true;
+
+            int cont_si = 0;
+            for (Respuesta res:application.respuestas_estructura) {
+                if (res.getNivelSi()==1)cont_si++;
+            }
+            nota_estructura = ((double)cont_si/(double)application.respuestas_estructura.size())*100;
+
+        }
+
+        if (application.respuestas_procedimientos != null && application.respuestas_procedimientos.size() > 0){
+            procedimientos = true;
+
+            int cont_si = 0;
+            for (Respuesta res:application.respuestas_procedimientos) {
+                if (res.getNivelSi()==1)cont_si++;
+            }
+            nota_procedimientos = ((double)cont_si/(double)application.respuestas_procedimientos.size())*100;
+            Log.d("RES","RES: "+(double)cont_si/(double)application.respuestas_procedimientos.size());
+        }
+
+        if (procedimientos && estructura && calidad){
+            return ((nota_procedimientos *20)+(nota_estructura*20)+(nota_calidad*60))/100;
+        }
+
+        if (procedimientos && estructura ){
+            return ((nota_procedimientos *50)+(nota_estructura*50))/100;
+        }
+
+        if (procedimientos && calidad ){
+            return ((nota_procedimientos *30)+(nota_calidad*70))/100;
+        }
+
+        if (estructura && calidad ){
+            return ((nota_estructura *30)+(nota_calidad*70))/100;
+        }
+
+        if (estructura) return nota_estructura;
+        if (calidad) return nota_calidad;
+        if (procedimientos) return nota_procedimientos;
+
+        return 0.0;
+    }
+
     private void envio_datos(){
         Log.d("ENVIO","ENVIO");
+
+        calcular_nota_cuestionario();
 
         JSONObject json_cuestionario = new JSONObject();
 
@@ -341,7 +441,7 @@ public class MainActivityFragment extends Fragment {
             json_cuestionario.put("fecha", application.getCuestionario().getFecha());
             json_cuestionario.put("objetivo", application.getCuestionario().getObjetivo());
             json_cuestionario.put("supervisor", application.getCuestionario().getSupervisor());
-            json_cuestionario.put("valoracion", application.getCuestionario().getValoracion());
+            json_cuestionario.put("valoracion", calcular_nota_cuestionario());
             json_cuestionario.put("desviacion", application.getCuestionario().getDesviacion());
             json_cuestionario.put("evaluador", application.getCuestionario().getEvaluador());
             json_cuestionario.put("observaciones", application.getCuestionario().getObservaciones());

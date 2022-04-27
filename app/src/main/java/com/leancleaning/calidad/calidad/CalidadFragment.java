@@ -299,7 +299,9 @@ public class CalidadFragment extends Fragment {
                                 Respuesta respuesta = new Respuesta();
                                 respuesta.setIdPregunta(pregunta.getIdPregunta());
                                 respuesta.setIdArea(pregunta.getIdArea());
+                                respuesta.setNivelK(pregunta.getNivelK());
                                 respuesta.setContestado(false);
+
 
                                 respuestas.add(respuesta);
                             }
@@ -604,6 +606,7 @@ public class CalidadFragment extends Fragment {
             Log.d("getNivel3","getNivel3 "+ res.getNivel3());
             Log.d("getNivel4","getNivel4 "+ res.getNivel4());
             Log.d("getNivel5","getNivel5 "+ res.getNivel5());
+            Log.d("getNivelK","getNivelK "+ res.getNivelK());
             Log.d("isContestado","isContestado "+ res.isContestado());
 
             if (!res.isContestado()){
