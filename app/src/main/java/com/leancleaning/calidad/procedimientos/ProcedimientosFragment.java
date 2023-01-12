@@ -220,9 +220,11 @@ public class ProcedimientosFragment extends Fragment {
 
                 final CheckBox checkbox_si =  convertView.findViewById(R.id.checkbox_si);
                 final CheckBox checkbox_no =  convertView.findViewById(R.id.checkbox_no);
+                final CheckBox checkbox_no_aplica =  convertView.findViewById(R.id.checkbox_no_aplica);
 
                 checkbox_si.setTag(items.get(position).getIdPregunta());
                 checkbox_no.setTag(items.get(position).getIdPregunta());
+                checkbox_no_aplica.setTag(items.get(position).getIdPregunta());
 
                 //Inicializar el checkbox segun los valores de las respuestas
                 int id_pregunta_maestra = items.get(position).getIdPregunta();
@@ -242,6 +244,10 @@ public class ProcedimientosFragment extends Fragment {
                     checkbox_no.setChecked(true);
                 }
 
+                if (respuesta_seleccionada.getNivelNoAplica() == 1){
+                    checkbox_no_aplica.setChecked(true);
+                }
+
                 checkbox_si.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -259,7 +265,9 @@ public class ProcedimientosFragment extends Fragment {
                             System.out.println("checkbox_si Checked: "+ checkbox_si.getTag());
                             respuesta_seleccionada.setNivelSi(1);
                             respuesta_seleccionada.setNivelNo(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_no.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
 
                         } else {
@@ -274,7 +282,7 @@ public class ProcedimientosFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        int id_pregunta_pulsada = Integer.parseInt(checkbox_si.getTag().toString());
+                        int id_pregunta_pulsada = Integer.parseInt(checkbox_no.getTag().toString());
                         Respuesta respuesta_seleccionada = null;
                         for (Respuesta resp :respuestas) {
                             if (resp.getIdPregunta() == id_pregunta_pulsada){
@@ -287,11 +295,43 @@ public class ProcedimientosFragment extends Fragment {
                             System.out.println("checkbox_no Checked: "+ checkbox_no.getTag());
                             respuesta_seleccionada.setNivelNo(1);
                             respuesta_seleccionada.setNivelSi(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_si.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
                         } else {
                             System.out.println("checkbox_no Un-Checked: "+ checkbox_no.getTag());
                             respuesta_seleccionada.setNivelNo(0);
+                            respuesta_seleccionada.setContestado(false);
+                        }
+                    }
+                });
+
+                checkbox_no_aplica.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        int id_pregunta_pulsada = Integer.parseInt(checkbox_no_aplica.getTag().toString());
+                        Respuesta respuesta_seleccionada = null;
+                        for (Respuesta resp :respuestas) {
+                            if (resp.getIdPregunta() == id_pregunta_pulsada){
+                                respuesta_seleccionada = resp;
+                                break;
+                            }
+                        }
+
+                        if(((CompoundButton) view).isChecked()){
+                            System.out.println("checkbox_no Checked: "+ checkbox_no_aplica.getTag());
+                            respuesta_seleccionada.setNivelNoAplica(1);
+                            respuesta_seleccionada.setNivelNo(0);
+                            respuesta_seleccionada.setNivelSi(0);
+
+                            checkbox_si.setChecked(false);
+                            checkbox_no.setChecked(false);
+                            respuesta_seleccionada.setContestado(true);
+                        } else {
+                            System.out.println("checkbox_no Un-Checked: "+ checkbox_no_aplica.getTag());
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             respuesta_seleccionada.setContestado(false);
                         }
                     }

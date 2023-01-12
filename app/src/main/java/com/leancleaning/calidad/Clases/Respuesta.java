@@ -17,6 +17,7 @@ public class Respuesta implements Cloneable {
     private int nivelNo;
     private boolean contestado;
     private int nivelK;
+    private int nivelNoAplica;
 
     public Respuesta() {
     }
@@ -137,6 +138,14 @@ public class Respuesta implements Cloneable {
 
     public void setNivelK(int nivelK) {
         this.nivelK = nivelK;
+    }
+
+    public int getNivelNoAplica() {
+        return nivelNoAplica;
+    }
+
+    public void setNivelNoAplica(int nivelNoAplica) {
+        this.nivelNoAplica = nivelNoAplica;
     }
 
     public Object clone()

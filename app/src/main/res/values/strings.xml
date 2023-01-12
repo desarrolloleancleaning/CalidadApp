@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LeanCleaning Calidad</string>
+    <string name="app_name">Calidad</string>
     <string name="cat">Categoría</string>
 
     <string name="usuario_cabecera">Usuario:</string>
@@ -167,6 +167,7 @@
     <string name="borrar_nfc">¿Está seguro de que desea borrar el NFC?</string>
     <string name="si">Sí</string>
     <string name="no">No</string>
+    <string name="no_aplica">N/A</string>
     <string name="texto_contenedor_operaciones">Todavía no existen operaciones definidas para esta tarea</string>
 
     <string name="estructura">Estructura</string>

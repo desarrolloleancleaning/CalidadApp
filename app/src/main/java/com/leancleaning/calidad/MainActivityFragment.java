@@ -463,6 +463,7 @@ public class MainActivityFragment extends Fragment {
                     respuesas.put("nivel5", res_cues.getNivel5());
                     respuesas.put("nivelSi", res_cues.getNivelSi());
                     respuesas.put("nivelNo", res_cues.getNivelNo());
+                    respuesas.put("nivelNoAplica", res_cues.getNivelNoAplica());
 
                     array_res.put(respuesas);
                 }
@@ -481,6 +482,7 @@ public class MainActivityFragment extends Fragment {
                     respuesas.put("nivel5", res_cues.getNivel5());
                     respuesas.put("nivelSi", res_cues.getNivelSi());
                     respuesas.put("nivelNo", res_cues.getNivelNo());
+                    respuesas.put("nivelNoAplica", res_cues.getNivelNoAplica());
 
                     array_res.put(respuesas);
                 }
@@ -498,6 +500,7 @@ public class MainActivityFragment extends Fragment {
                     respuesas.put("nivel5", res_cues.getNivel5());
                     respuesas.put("nivelSi", res_cues.getNivelSi());
                     respuesas.put("nivelNo", res_cues.getNivelNo());
+                    respuesas.put("nivelNoAplica", res_cues.getNivelNoAplica());
 
                     array_res.put(respuesas);
                 }
