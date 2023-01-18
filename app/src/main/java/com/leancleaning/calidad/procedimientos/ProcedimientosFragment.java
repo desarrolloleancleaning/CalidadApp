@@ -138,6 +138,7 @@ public class ProcedimientosFragment extends Fragment {
                                 Pregunta pregunta = new Pregunta();
                                 pregunta.setIdPregunta(Integer.valueOf(json_pregunta.getString("idPregunta")));
                                 pregunta.setDetalle(json_pregunta.getJSONObject("idPregunta0").getString("detalle"));
+                                pregunta.setDescripcion(json_pregunta.getJSONObject("idPregunta0").getString("descripcion"));
                                 pregunta.setIdArea(Integer.valueOf(json_pregunta.getString("idArea")));
                                 try {
                                     pregunta.setNivelK(Integer.valueOf(json_pregunta.getJSONObject("idPregunta0").getString("nivelK")));
@@ -221,10 +222,50 @@ public class ProcedimientosFragment extends Fragment {
                 final CheckBox checkbox_si =  convertView.findViewById(R.id.checkbox_si);
                 final CheckBox checkbox_no =  convertView.findViewById(R.id.checkbox_no);
                 final CheckBox checkbox_no_aplica =  convertView.findViewById(R.id.checkbox_no_aplica);
+                final ImageView informacion = convertView.findViewById(R.id.informacion);
+
+                if (items.get(position).getDescripcion()==null || items.get(position).getDescripcion().equals("") || items.get(position).getDescripcion().equals("null")){
+                    informacion.setVisibility(View.GONE);
+                }else{
+                    informacion.setVisibility(View.VISIBLE);
+                }
 
                 checkbox_si.setTag(items.get(position).getIdPregunta());
                 checkbox_no.setTag(items.get(position).getIdPregunta());
                 checkbox_no_aplica.setTag(items.get(position).getIdPregunta());
+                informacion.setTag(items.get(position).getIdPregunta());
+
+
+                informacion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("Click","Click: "+ informacion.getTag().toString());
+
+                        int id_pregunta_pulsada = Integer.parseInt(informacion.getTag().toString());
+                        for (Pregunta pregunta :items) {
+                            if (pregunta.getIdPregunta() == id_pregunta_pulsada){
+                                //Log.d("Click","Click: "+ pregunta.getDescripcion());
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                                builder.setTitle(getString(R.string.informacion));
+                                builder.setMessage(pregunta.getDescripcion());
+
+                                builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+                                break;
+                            }
+                        }
+
+                    }
+                });
 
                 //Inicializar el checkbox segun los valores de las respuestas
                 int id_pregunta_maestra = items.get(position).getIdPregunta();

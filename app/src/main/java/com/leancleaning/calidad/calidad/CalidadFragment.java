@@ -279,6 +279,7 @@ public class CalidadFragment extends Fragment {
                                 Pregunta pregunta = new Pregunta();
                                 pregunta.setIdPregunta(Integer.valueOf(json_pregunta.getString("idPregunta")));
                                 pregunta.setDetalle(json_pregunta.getJSONObject("idPregunta0").getString("detalle"));
+                                pregunta.setDescripcion(json_pregunta.getJSONObject("idPregunta0").getString("descripcion"));
                                 pregunta.setIdArea(Integer.valueOf(json_pregunta.getString("idArea")));
                                 try {
                                     pregunta.setNivelK(Integer.valueOf(json_pregunta.getJSONObject("idPregunta0").getString("nivelK")));
@@ -373,12 +374,54 @@ public class CalidadFragment extends Fragment {
                 final CheckBox checkbox_3 =  convertView.findViewById(R.id.checkbox_3);
                 final CheckBox checkbox_4 =  convertView.findViewById(R.id.checkbox_4);
                 final CheckBox checkbox_5 =  convertView.findViewById(R.id.checkbox_5);
+                final CheckBox checkbox_no_aplica =  convertView.findViewById(R.id.checkbox_no_aplica);
+                final ImageView informacion = convertView.findViewById(R.id.informacion);
+
+                if (items.get(position).getDescripcion()==null || items.get(position).getDescripcion().equals("") || items.get(position).getDescripcion().equals("null")){
+                    informacion.setVisibility(View.GONE);
+                }else{
+                    informacion.setVisibility(View.VISIBLE);
+                }
 
                 checkbox_1.setTag(items.get(position).getIdPregunta());
                 checkbox_2.setTag(items.get(position).getIdPregunta());
                 checkbox_3.setTag(items.get(position).getIdPregunta());
                 checkbox_4.setTag(items.get(position).getIdPregunta());
                 checkbox_5.setTag(items.get(position).getIdPregunta());
+                checkbox_no_aplica.setTag(items.get(position).getIdPregunta());
+                informacion.setTag(items.get(position).getIdPregunta());
+
+                informacion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("Click","Click: "+ informacion.getTag().toString());
+
+                        int id_pregunta_pulsada = Integer.parseInt(informacion.getTag().toString());
+                        for (Pregunta pregunta :items) {
+                            if (pregunta.getIdPregunta() == id_pregunta_pulsada){
+                                //Log.d("Click","Click: "+ pregunta.getDescripcion());
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                                builder.setTitle(getString(R.string.informacion));
+                                builder.setMessage(pregunta.getDescripcion());
+
+                                builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+                                break;
+                            }
+                        }
+
+                    }
+                });
+
 
                 //Inicializar el checkbox segun los valores de las respuestas
                 int id_pregunta_maestra = items.get(position).getIdPregunta();
@@ -410,7 +453,9 @@ public class CalidadFragment extends Fragment {
                     checkbox_5.setChecked(true);
                 }
 
-
+                if (respuesta_seleccionada.getNivelNoAplica() == 1){
+                    checkbox_no_aplica.setChecked(true);
+                }
 
                 checkbox_1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -432,10 +477,12 @@ public class CalidadFragment extends Fragment {
                             respuesta_seleccionada.setNivel3(0);
                             respuesta_seleccionada.setNivel4(0);
                             respuesta_seleccionada.setNivel5(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_2.setChecked(false);
                             checkbox_3.setChecked(false);
                             checkbox_4.setChecked(false);
                             checkbox_5.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
 
                         } else {
@@ -466,10 +513,12 @@ public class CalidadFragment extends Fragment {
                             respuesta_seleccionada.setNivel3(0);
                             respuesta_seleccionada.setNivel4(0);
                             respuesta_seleccionada.setNivel5(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_1.setChecked(false);
                             checkbox_3.setChecked(false);
                             checkbox_4.setChecked(false);
                             checkbox_5.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
                         } else {
                             System.out.println("checkbox_no Un-Checked: "+ checkbox_2.getTag());
@@ -499,10 +548,12 @@ public class CalidadFragment extends Fragment {
                             respuesta_seleccionada.setNivel2(0);
                             respuesta_seleccionada.setNivel4(0);
                             respuesta_seleccionada.setNivel5(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_1.setChecked(false);
                             checkbox_2.setChecked(false);
                             checkbox_4.setChecked(false);
                             checkbox_5.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
                         } else {
                             System.out.println("checkbox_no Un-Checked: "+ checkbox_3.getTag());
@@ -532,10 +583,12 @@ public class CalidadFragment extends Fragment {
                             respuesta_seleccionada.setNivel2(0);
                             respuesta_seleccionada.setNivel3(0);
                             respuesta_seleccionada.setNivel5(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_1.setChecked(false);
                             checkbox_2.setChecked(false);
                             checkbox_3.setChecked(false);
                             checkbox_5.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
                         } else {
                             System.out.println("checkbox_no Un-Checked: "+ checkbox_4.getTag());
@@ -565,14 +618,51 @@ public class CalidadFragment extends Fragment {
                             respuesta_seleccionada.setNivel2(0);
                             respuesta_seleccionada.setNivel3(0);
                             respuesta_seleccionada.setNivel4(0);
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             checkbox_1.setChecked(false);
                             checkbox_2.setChecked(false);
                             checkbox_3.setChecked(false);
                             checkbox_4.setChecked(false);
+                            checkbox_no_aplica.setChecked(false);
                             respuesta_seleccionada.setContestado(true);
                         } else {
                             System.out.println("checkbox_no Un-Checked: "+ checkbox_5.getTag());
                             respuesta_seleccionada.setNivel5(0);
+                            respuesta_seleccionada.setContestado(false);
+                        }
+                    }
+                });
+
+                checkbox_no_aplica.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        int id_pregunta_pulsada = Integer.parseInt(checkbox_no_aplica.getTag().toString());
+                        Respuesta respuesta_seleccionada = null;
+                        for (Respuesta resp :respuestas) {
+                            if (resp.getIdPregunta() == id_pregunta_pulsada){
+                                respuesta_seleccionada = resp;
+                                break;
+                            }
+                        }
+
+                        if(((CompoundButton) view).isChecked()){
+                            System.out.println("checkbox_no Checked: "+ checkbox_no_aplica.getTag());
+                            respuesta_seleccionada.setNivelNoAplica(1);
+                            respuesta_seleccionada.setNivel1(0);
+                            respuesta_seleccionada.setNivel2(0);
+                            respuesta_seleccionada.setNivel3(0);
+                            respuesta_seleccionada.setNivel4(0);
+                            respuesta_seleccionada.setNivel5(0);
+                            checkbox_1.setChecked(false);
+                            checkbox_2.setChecked(false);
+                            checkbox_3.setChecked(false);
+                            checkbox_4.setChecked(false);
+                            checkbox_5.setChecked(false);
+                            respuesta_seleccionada.setContestado(true);
+                        } else {
+                            System.out.println("checkbox_no Un-Checked: "+ checkbox_no_aplica.getTag());
+                            respuesta_seleccionada.setNivelNoAplica(0);
                             respuesta_seleccionada.setContestado(false);
                         }
                     }

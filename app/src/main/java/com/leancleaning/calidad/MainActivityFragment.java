@@ -369,10 +369,13 @@ public class MainActivityFragment extends Fragment {
                         puntuacion_respuesta = 4;
                     }else if (res.getNivel5() == 1){
                         puntuacion_respuesta = 5;
+                    }else if (res.getNivelNoAplica() == 1){
+                        puntuacion_respuesta = 0;
                     }
                     puntuacion_respuesta = puntuacion_respuesta * res.getNivelK();
                     cont_parcial += puntuacion_respuesta;
-                    cont_total += 5 * res.getNivelK();
+                    if (res.getNivelNoAplica() != 1)
+                        cont_total += 5 * res.getNivelK();
                 }
             }
 
@@ -384,10 +387,12 @@ public class MainActivityFragment extends Fragment {
             estructura = true;
 
             int cont_si = 0;
+            int cont_no_aplica = 0;
             for (Respuesta res:application.respuestas_estructura) {
                 if (res.getNivelSi()==1)cont_si++;
+                if (res.getNivelNoAplica()==1)cont_no_aplica++;
             }
-            nota_estructura = ((double)cont_si/(double)application.respuestas_estructura.size())*100;
+            nota_estructura = ((double)cont_si/((double)application.respuestas_estructura.size()- cont_no_aplica))*100;
 
         }
 
@@ -395,10 +400,12 @@ public class MainActivityFragment extends Fragment {
             procedimientos = true;
 
             int cont_si = 0;
+            int cont_no_aplica = 0;
             for (Respuesta res:application.respuestas_procedimientos) {
                 if (res.getNivelSi()==1)cont_si++;
+                if (res.getNivelNoAplica()==1)cont_no_aplica++;
             }
-            nota_procedimientos = ((double)cont_si/(double)application.respuestas_procedimientos.size())*100;
+            nota_procedimientos = ((double)cont_si/((double)application.respuestas_procedimientos.size()-cont_no_aplica))*100;
             Log.d("RES","RES: "+(double)cont_si/(double)application.respuestas_procedimientos.size());
         }
 

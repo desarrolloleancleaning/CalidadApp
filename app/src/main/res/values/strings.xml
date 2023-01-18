@@ -209,4 +209,8 @@
     <string name="seguro_enviar">¿Está seguro de que desea enviar el cuestionario?</string>
 
     <string name="formulario_ok_enviado">Cuestionario enviado correctamente</string>
+
+    <string name="informacion">Información</string>
+
+
 </resources>

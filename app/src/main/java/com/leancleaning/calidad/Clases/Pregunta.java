@@ -7,6 +7,7 @@ public class Pregunta {
     private String detalle;
     private int idTipoAuditoria;
     private int nivelK;
+    private String descripcion;
 
     public Pregunta() {
     }
@@ -57,5 +58,13 @@ public class Pregunta {
 
     public void setNivelK(int nivelK) {
         this.nivelK = nivelK;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

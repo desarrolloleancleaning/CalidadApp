@@ -387,6 +387,7 @@
                     android:layout_height="90dp"
                     android:background="@drawable/borde15"
                     android:layout_margin="1dp"
+                    android:visibility="gone"
                     >
 
                     <TextView
