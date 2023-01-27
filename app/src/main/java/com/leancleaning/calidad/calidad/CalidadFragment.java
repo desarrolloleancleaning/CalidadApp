@@ -399,7 +399,6 @@ public class CalidadFragment extends Fragment {
                         int id_pregunta_pulsada = Integer.parseInt(informacion.getTag().toString());
                         for (Pregunta pregunta :items) {
                             if (pregunta.getIdPregunta() == id_pregunta_pulsada){
-                                //Log.d("Click","Click: "+ pregunta.getDescripcion());
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 

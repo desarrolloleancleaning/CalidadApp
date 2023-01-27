@@ -20,8 +20,8 @@ import java.net.URL;
 public class LlamadaGet extends AsyncTask<String, String, String> {
 
     private final String TAG = "LlamadaGet";
-    //public static final String URLBASE = "http://ccw.leancleaning.es/index.php?r=api/";
-    public static final String URLBASE = "http://141.95.160.200/leancleaning/web/index.php?r=api/";
+    public static final String URLBASE = "http://ccw.leancleaning.es/index.php?r=api/";
+    //public static final String URLBASE = "http://141.95.160.200/leancleaning/web/index.php?r=api/";
 
     static final String USERWS = "leancleaning";
     static final String PASSWS = "G445y,xX$8V[76,b";

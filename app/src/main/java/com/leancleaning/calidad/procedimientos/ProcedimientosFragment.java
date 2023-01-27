@@ -139,7 +139,11 @@ public class ProcedimientosFragment extends Fragment {
                                 pregunta.setIdPregunta(Integer.valueOf(json_pregunta.getString("idPregunta")));
                                 pregunta.setDetalle(json_pregunta.getJSONObject("idPregunta0").getString("detalle"));
                                 pregunta.setDescripcion(json_pregunta.getJSONObject("idPregunta0").getString("descripcion"));
-                                pregunta.setIdArea(Integer.valueOf(json_pregunta.getString("idArea")));
+                                try{
+                                    pregunta.setIdArea(Integer.valueOf(json_pregunta.getString("idArea")));
+                                }catch (Exception e){
+                                }
+
                                 try {
                                     pregunta.setNivelK(Integer.valueOf(json_pregunta.getJSONObject("idPregunta0").getString("nivelK")));
                                 }catch (Exception e){

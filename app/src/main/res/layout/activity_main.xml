@@ -72,7 +72,7 @@
                 android:textCursorDrawable="@null"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
-                android:text="sandu"
+                android:text=""
                 />
 
             <LinearLayout
@@ -114,7 +114,7 @@
                 android:singleLine="true"
                 android:textCursorDrawable="@null"
                 android:imeOptions="actionDone"
-                android:text="123123"/>
+                android:text=""/>
 
 
             <LinearLayout
@@ -145,7 +145,6 @@
                 android:layout_height="100dp"
                 android:text="@string/iniciarsesion"
                 android:textAllCaps="false"
-                android:background="@drawable/borde2"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:layout_weight="1"
