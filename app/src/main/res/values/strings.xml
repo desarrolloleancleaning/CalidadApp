@@ -187,7 +187,7 @@
     <string name="error_datos_generales">Por favor rellene los campos obligatorios (*) para continuar.</string>
 
     <string name="centro">Centro:</string>
-    <string name="departamento">Departamento * :</string>
+    <string name="departamento">Departamento:</string>
     <string name="fecha">Fecha:</string>
     <string name="responsable">Responsable * :</string>
     <string name="objetivo">Objetivo * :</string>

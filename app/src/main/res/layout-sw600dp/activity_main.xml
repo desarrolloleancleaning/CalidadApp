@@ -14,8 +14,8 @@
         android:layout_weight="2">
 
         <ImageView
-            android:layout_width="235dp"
-            android:layout_height="100dp"
+            android:layout_width="470dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@drawable/logoapp"
             android:id="@+id/imageView" />
@@ -29,7 +29,7 @@
             android:layout_marginRight="20dp"
             android:text=""
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="30sp"
             android:layout_gravity="right|bottom"/>
 
 
@@ -61,7 +61,7 @@
             <EditText
                 android:id="@+id/dni"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:hint="@string/usuario"
                 android:textColorHint="#9a9a9a"
                 android:textAlignment="center"
@@ -72,7 +72,7 @@
                 android:textCursorDrawable="@null"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
-                android:text="sandu"
+                android:text=""
                 />
 
             <LinearLayout
@@ -102,7 +102,7 @@
             <EditText
                 android:id="@+id/contrasena"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:hint="@string/contrasena"
                 android:textColorHint="#9a9a9a"
                 android:textAlignment="center"
@@ -114,7 +114,7 @@
                 android:singleLine="true"
                 android:textCursorDrawable="@null"
                 android:imeOptions="actionDone"
-                android:text="carlos"/>
+                android:text=""/>
 
 
             <LinearLayout
@@ -142,11 +142,11 @@
             <Button
                 android:id="@+id/login"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:text="@string/iniciarsesion"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_weight="1"
                 android:typeface="sans">
             </Button>

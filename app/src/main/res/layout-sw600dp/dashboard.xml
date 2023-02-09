@@ -22,20 +22,20 @@
 
             <TextView
                 android:id="@+id/text_usuario"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="25sp"
                 android:text="@string/usuario_cabecera"/>
 
             <TextView
                 android:id="@+id/text_sede"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="25sp"
                 android:text="@string/sede_cabecera"/>
 
 
@@ -50,7 +50,7 @@
 
             <ImageView
                 android:id="@+id/image_enviar_info"
-                android:layout_width="40dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
@@ -83,8 +83,8 @@
 
             <ImageView
                 android:id="@+id/image_datos_generales"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="195dp"
+                android:layout_height="195dp"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:layout_weight="1.2"
@@ -101,7 +101,7 @@
                 android:text="@string/datos_generales"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp"
+                android:textSize="42sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -109,8 +109,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="12">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/flechamenu" />
             </LinearLayout>
@@ -130,8 +130,8 @@
 
             <ImageView
                 android:id="@+id/image_calidad"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="195dp"
+                android:layout_height="195dp"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:layout_weight="1.2"
@@ -148,7 +148,7 @@
                 android:text="@string/calidad"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp"
+                android:textSize="42sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -157,8 +157,8 @@
                 android:layout_weight="12"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/flechamenu" />
             </LinearLayout>
@@ -179,8 +179,8 @@
 
             <ImageView
                 android:id="@+id/image_estructura"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="195dp"
+                android:layout_height="195dp"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:layout_weight="1.2"
@@ -197,7 +197,7 @@
                 android:text="@string/estructura"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp"
+                android:textSize="42sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -205,8 +205,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="12">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/flechamenu" />
             </LinearLayout>
@@ -226,8 +226,8 @@
 
             <ImageView
                 android:id="@+id/image_procedimiento"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="195dp"
+                android:layout_height="195dp"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:layout_weight="1.2"
@@ -244,7 +244,7 @@
                 android:text="@string/procedimientos"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp"
+                android:textSize="42sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -252,8 +252,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="12">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/flechamenu" />
             </LinearLayout>

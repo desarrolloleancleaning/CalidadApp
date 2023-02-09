@@ -136,8 +136,7 @@ public class DatosGeneralesFragment extends Fragment {
         boolean contestado_todo_cuestionario = true;
 
 
-        if (departamento.getText().toString().equals("") ||
-                responsable.getText().toString().equals("") ||
+        if ( responsable.getText().toString().equals("") ||
                 objetivo.getText().toString().equals("") ){
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
