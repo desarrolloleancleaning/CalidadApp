@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="60dp"
     android:orientation="horizontal"
     android:background="@drawable/borde15"
     android:clickable="true"
@@ -10,20 +10,20 @@
     <TextView
         android:id="@+id/nombre_tarea"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="start|center_vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:textCursorDrawable="@null"
-        android:textSize="18dp"
+        android:textSize="13dp"
         android:textColor="#FFFFFF"/>
 
     <ImageView
         android:id="@+id/informacion"
-        android:layout_width="35dp"
-        android:layout_height="70dp"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
         android:layout_marginRight="20dp"
         android:src="@drawable/info"
@@ -32,13 +32,13 @@
 
     <CheckBox
         android:id="@+id/checkbox_si"
-        android:layout_width="50dp"
-        android:layout_height="90dp" />
+        android:layout_width="35dp"
+        android:layout_height="60dp" />
     <CheckBox android:id="@+id/checkbox_no"
-        android:layout_width="50dp"
-        android:layout_height="90dp" />
+        android:layout_width="35dp"
+        android:layout_height="60dp" />
     <CheckBox android:id="@+id/checkbox_no_aplica"
-        android:layout_width="50dp"
-        android:layout_height="90dp" />
+        android:layout_width="35dp"
+        android:layout_height="60dp" />
 
 </LinearLayout>
